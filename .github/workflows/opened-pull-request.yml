@@ -1,0 +1,15 @@
+name: opened-pull-request
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo text
+        run: |
+          echo "Job ran successfully"
+          echo "Source branch is ${GITHUB_HEAD_REF}"
+          echo "Target branch is ${GITHUB_BASE_REF}"
