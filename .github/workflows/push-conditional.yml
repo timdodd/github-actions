@@ -1,0 +1,13 @@
+name: push-conditional
+on: push
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo text
+        run: echo "Job ran successfully"
+      - name: optional step
+        run: echo "Branch is bug fix"
+        if: ${{ startsWith(github.ref_name, 'bug') }}
